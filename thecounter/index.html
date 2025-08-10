@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Fast and futuristic text and word counter tool. Instantly count words and characters with style." />
+  <title>The Counter - Fast & Futuristic Text & Word Counter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap');
+
+    :root {
+      --bg-color: #0f1218;
+      --primary-color: #00ffc8;
+      --secondary-color: #00bfa5;
+      --text-color: #e0f7f4;
+      --footer-bg: #0a0c11;
+      --header-bg: #121619;
+      --btn-bg: #00bfa5;
+      --btn-hover-bg: #00e6a5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background: var(--header-bg);
+      padding: 1rem 2rem;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.1em;
+    }
+
+    header {
+      font-size: 1.8rem;
+      border-bottom: 1px solid var(--primary-color);
+      box-shadow: 0 2px 8px rgba(0, 255, 200, 0.25);
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 720px;
+      margin: 2rem auto;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* Landing Intro Section */
+    .intro {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--primary-color);
+      text-shadow:
+        0 0 5px var(--secondary-color),
+        0 0 10px var(--primary-color),
+        0 0 20px var(--primary-color);
+    }
+    .intro h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+    }
+    .intro p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #a0fff3cc;
+    }
+    .intro button {
+      margin-top: 1.5rem;
+      background: var(--btn-bg);
+      border: none;
+      padding: 0.9rem 2rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      color: var(--bg-color);
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow:
+        0 0 8px var(--btn-bg),
+        0 0 12px var(--btn-bg);
+      transition: background-color 0.3s ease;
+    }
+    .intro button:hover {
+      background: var(--btn-hover-bg);
+      box-shadow:
+        0 0 12px var(--btn-hover-bg),
+        0 0 18px var(--btn-hover-bg);
+    }
+
+    /* Textarea & Counter */
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      color: var(--text-color);
+      font-size: 1.1rem;
+      padding: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+      font-family: 'Roboto', sans-serif;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 12px var(--secondary-color);
+    }
+
+    .counter {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1rem;
+    }
+
+    .counter div {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Futuristic glowing effect */
+    .counter span {
+      color: var(--secondary-color);
+      text-shadow:
+        0 0 5px var(--secondary-color),
+        0 0 10px var(--primary-color),
+        0 0 20px var(--primary-color);
+    }
+
+    /* Clear button */
+    #clearBtn {
+      background: var(--btn-bg);
+      border: none;
+      padding: 0.7rem 1.6rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      color: var(--bg-color);
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow:
+        0 0 8px var(--btn-bg),
+        0 0 12px var(--btn-bg);
+      transition: background-color 0.3s ease;
+      margin: 1rem auto 0 auto;
+      display: block;
+      max-width: 150px;
+      text-align: center;
+    }
+    #clearBtn:hover {
+      background: var(--btn-hover-bg);
+      box-shadow:
+        0 0 12px var(--btn-hover-bg),
+        0 0 18px var(--btn-hover-bg);
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #666;
+      border-top: 1px solid #111;
+      padding: 1rem 2rem;
+    }
+
+    /* Ad Container */
+    .ad-container {
+      margin: 2rem auto;
+      width: 100%;
+      max-width: 720px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Smooth scroll for button */
+    html {
+      scroll-behavior: smooth;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  THE COUNTER
+</header>
+
+<main>
+
+  <section class="intro" id="intro">
+    <h1>Welcome to The Counter</h1>
+    <p>Instantly count words & characters with style.<br />Simple. Fast. Futuristic.</p>
+    <button onclick="document.getElementById('textInput').focus()">Get Started</button>
+  </section>
+
+  <section class="counter-tool" id="counterTool">
+    <textarea id="textInput" placeholder="Type or paste your text here..."></textarea>
+    <button id="clearBtn" aria-label="Clear text input">Clear Text</button>
+    <div class="counter">
+      <div>Words: <span id="wordCount" aria-live="polite">0</span></div>
+      <div>Characters: <span id="charCount" aria-live="polite">0</span></div>
+    </div>
+
+    <div class="ad-container">
+      <!-- Replace this with your actual Google AdSense code -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-6552719631322705"
+           data-ad-slot="8137563557"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 The Counter. All rights reserved.
+</footer>
+
+<!-- Google AdSense Script -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script>
+  const textInput = document.getElementById('textInput');
+  const wordCount = document.getElementById('wordCount');
+  const charCount = document.getElementById('charCount');
+  const clearBtn = document.getElementById('clearBtn');
+
+  function updateCounts() {
+    const text = textInput.value.trim();
+
+    // Word count: split by spaces/newlines but filter empty
+    const words = text.length === 0 ? 0 : text.split(/\s+/).filter(Boolean).length;
+    const chars = text.length;
+
+    wordCount.textContent = words;
+    charCount.textContent = chars;
+  }
+
+  textInput.addEventListener('input', updateCounts);
+
+  clearBtn.addEventListener('click', () => {
+    textInput.value = '';
+    updateCounts();
+    textInput.focus();
+  });
+
+  // Initial count on load
+  updateCounts();
+</script>
+
+</body>
+</html>
